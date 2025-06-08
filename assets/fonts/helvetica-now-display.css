@@ -1,0 +1,44 @@
+/* the-whole-spectrum/David-gebski-goofy-site/fonts/helvetica-now-display/helvetica-now-display.css */
+
+/* helvetica-now-display-bold */
+@font-face {
+    font-family: "Helvetica Now Display";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Helvetica Now Display Bold"), local("HelveticaNowDisplay-Bd"), url("helvetica-now-display-bold.woff2") format("woff2"), url("helvetica-now-display-bold.woff") format("woff");
+}
+/* helvetica-now-display */
+@font-face {
+    font-family: "Helvetica Now Display";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Helvetica Now Display"), local("HelveticaNowDisplay-Regular"), url("helvetica-now-display.woff2") format("woff2"), url("helvetica-now-display.woff") format("woff");
+}
+/* helvetica-now-display-it */
+@font-face {
+    font-family: "Helvetica Now Display";
+    font-style: italic;
+    font-weight: 400;
+    src: local("Helvetica Now Display It"), local("HelveticaNowDisplay-Italic"), url("helvetica-now-display-it.woff2") format("woff2"), url("helvetica-now-display-it.woff") format("woff");
+}
+/* helvetica-now-display-bd-it */
+@font-face {
+    font-family: "Helvetica Now Display";
+    font-style: italic;
+    font-weight: 700;
+    src: local("Helvetica Now Display Bd It"), local("HelveticaNowDisplay-BdIt"), url("helvetica-now-display-bd-it.woff2") format("woff2"), url("helvetica-now-display-bd-it.woff") format("woff");
+}
+/* helvetica-now-display-light */
+@font-face {
+    font-family: "Helvetica Now Display Light";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Helvetica Now Display Light"), local("HelveticaNowDisplay-Lt"), url("helvetica-now-display-light.woff2") format("woff2"), url("helvetica-now-display-light.woff") format("woff");
+}
+/* helvetica-now-display-lt-it */
+@font-face {
+    font-family: "Helvetica Now Display Light";
+    font-style: italic;
+    font-weight: 300;
+    src: local("Helvetica Now Display Lt It"), local("HelveticaNowDisplay-LtIt"), url("helvetica-now-display-lt-it.woff2") format("woff2"), url("helvetica-now-display-lt-it.woff") format("woff");
+}
