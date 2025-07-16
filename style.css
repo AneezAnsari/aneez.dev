@@ -1,5 +1,3 @@
-/* style.css (David Gebski Theme with White/Black Theme Toggle - FIXED & Simplified) */
-
 @import url("assets/fonts/helvetica-now-display.css");
 
 /* Define your accent color here (original goofy accent) */
@@ -557,4 +555,129 @@ div.albums {
         font-size: 1.1em !important;
         padding: 15px 0 !important;
     }
+}
+/* --- Terminal Interface Styles (Combined) --- */
+
+.terminal-container {
+    background-color: #1a1a1a; /* Dark background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 90%; /* Adjust as needed */
+    max-width: 700px; /* Max width for larger screens */
+    margin: 50px auto; /* Center it horizontally with some top/bottom margin */
+    overflow: hidden;
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace; /* Monospaced font */
+    font-size: 0.9em;
+    border: 1px solid #333;
+
+    /* HIDDEN BY DEFAULT */
+    display: none; /* Crucial for hiding it initially */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+
+    /* Positioning it as a fixed overlay or modal */
+    position: fixed; /* Stays in place regardless of scroll */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers it perfectly */
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.terminal-container.is-visible {
+    display: block; /* Make it visible */
+    opacity: 1; /* Fade in */
+}
+
+.terminal-header {
+    background-color: #333;
+    color: #f0f0f0;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+}
+
+.terminal-title {
+    font-weight: bold;
+}
+
+.terminal-buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.terminal-buttons .close { background-color: #ff5f56; } /* Red */
+.terminal-buttons .minimize { background-color: #ffbd2e; } /* Yellow */
+.terminal-buttons .maximize { background-color: #27c93f; } /* Green */
+
+.terminal-body {
+    padding: 15px;
+    color: #0f0; /* Classic green text for terminal */
+    max-height: 400px; /* Limit height and make it scrollable */
+    overflow-y: auto;
+    /* Hide scrollbar for clean look */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.terminal-body::-webkit-scrollbar { /* Chrome, Safari, Opera */
+    display: none;
+}
+
+.terminal-output p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: baseline;
+    margin-top: 10px;
+}
+
+.terminal-prompt {
+    color: #00ff00; /* Bright green for prompt */
+    margin-right: 5px;
+    white-space: pre; /* Keep spaces/formatting */
+}
+
+.terminal-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #00ff00; /* Bright green for input text */
+    flex-grow: 1; /* Take up remaining space */
+    font-family: inherit; /* Inherit monospaced font */
+    font-size: inherit;
+    caret-color: #00ff00; /* Blinking cursor color */
+}
+
+/* Optional: Blinking cursor effect for a more authentic feel */
+.terminal-input:focus {
+    /* This makes the default caret blink, but if you want a custom block cursor: */
+    /* text-shadow: 0 0 1px #00ff00; */
+    /* animation: blink-caret 1s step-end infinite; */
+}
+
+/* @keyframes blink-caret {
+    from, to { border-right-color: transparent }
+    50% { border-right-color: #00ff00; }
+} */
+
+/* Optional: Add an overlay backdrop if you want it to dim the background */
+#terminal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent overlay */
+    z-index: 1000; /* Below terminal, above other content */
+    display: none; /* Hidden by default */
+}
+#terminal-backdrop.is-visible {
+    display: block;
 }
