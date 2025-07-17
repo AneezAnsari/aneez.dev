@@ -117,7 +117,95 @@ html[data-theme=dark] #theme-toggle img:last-child { /* Targets moon.svg */
     display: block;
 }
 
-/* Your original David Gebski Styles below, modified to use theme variables */
+/* --- NEW: Main Navigation (Projects, Connect, Resume) Styles --- */
+.main-navigation {
+    position: absolute; /* Position it relative to the viewport */
+    top: 20px;           /* Distance from the top of the page */
+    right: 20px;         /* Distance from the right of the page */
+    z-index: 999;        /* Ensure it's above general content but maybe below global-header's highest z-index if any conflicts */
+    /* No background or padding on the overall nav container unless desired */
+}
+
+.main-navigation ul {
+    list-style: none; /* Remove bullet points */
+    margin: 0;        /* Remove default margin */
+    padding: 0;       /* Remove default padding */
+    display: flex;    /* Use Flexbox for horizontal layout */
+    gap: 15px;        /* Uniform spacing between items (adjust as needed) */
+    align-items: center; /* Vertically align items */
+}
+
+.main-navigation li {
+    /* No specific styles needed for li */
+}
+
+.main-navigation a {
+    text-decoration: none;
+    background: var(--menu-bg-clr); /* Black background (theme responsive) */
+    color: var(--menu-text-clr) !important; /* Forces the text to be visible by default */
+    font-size: 20px;                 /* Match your previous menu size */
+    font-weight: bold;
+    padding: 4px 15px;               /* Padding inside the link/button */
+    height: 26px;                    /* Match your previous menu height */
+    display: flex;                   /* Use flexbox to center text vertically */
+    align-items: center;             /* Center text vertically */
+    justify-content: center;         /* Center text horizontally */
+    white-space: nowrap;             /* Prevent text from wrapping */
+    font-family: "Helvetica Now Display", sans-serif; /* Use your specific font */
+    box-sizing: border-box;          /* Include padding in element's total width/height */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+}
+
+.main-navigation a:hover {
+    background: var(--goofy-accent-color); /* Original orange on hover */
+    color: #FFFFFF !important; /* Keep text white on hover for accent color contrast */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* --- Responsive Adjustments for Main Navigation (for smaller screens) --- */
+@media (max-width: 768px) { /* Adjust breakpoint as needed for tablets/large phones */
+    .main-navigation {
+        top: 10px;    /* Slightly less space from top on smaller screens */
+        right: 10px;  /* Slightly less space from right */
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-end;  /* Align them to the right side of their container */
+        gap: 10px;              /* Reduce vertical gap */
+    }
+
+    .main-navigation a {
+        padding: 6px 12px; /* Smaller padding */
+        font-size: 0.9em;  /* Smaller font size */
+    }
+}
+
+@media (max-width: 480px) { /* Adjust breakpoint for typical mobile phones */
+    .main-navigation {
+        right: 5px; /* Even smaller right padding */
+        top: 5px;
+    }
+    .main-navigation ul {
+        gap: 8px; /* Even smaller gap */
+    }
+}
+
+/* --- NEW: Styles for the main site title (e.g., "aneez ansari") --- */
+.site-main-title a {
+    text-decoration: none;
+    color: var(--title-clr) !important; /* Default color: black in light, white in dark */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.site-main-title a:hover {
+    color: var(--goofy-accent-color) !important; /* Orange on hover */
+}
+
+
+/* --- David Gebski Styles Below (Original & Modified) --- */
+/* (Consider removing or commenting out div.menu, div.menuclosed, etc. if no longer used for main nav) */
+
 p {
     padding-left: 0px;
     margin-top: 0px;
