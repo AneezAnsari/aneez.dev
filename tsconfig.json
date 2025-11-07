@@ -1,0 +1,26 @@
+{
+  "portfolio": {
+    "name": "Aneez",
+    "title": "Developer & Designer",
+    "email": "hello@aneez.dev",
+    "social": {
+      "github": "https://github.com/aneez",
+      "linkedin": "https://linkedin.com/in/aneez",
+      "twitter": "https://twitter.com/aneez"
+    }
+  },
+  "animations": {
+    "particleCount": 50,
+    "parallaxIntensity": 15,
+    "scrollSpeed": 800,
+    "staggerDelay": 100
+  },
+  "theme": {
+    "colors": {
+      "ink": "#111111",
+      "paper": "#fafafa",
+      "grey": "#888888",
+      "accent": "#2a2a2a"
+    }
+  }
+}
