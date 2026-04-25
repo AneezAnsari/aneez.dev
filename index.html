@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anees Ul Islam — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #181818;
+      --border: #222222;
+      --accent: #c8f04a;
+      --accent2: #4af0c8;
+      --text: #e8e8e8;
+      --muted: #666;
+      --muted2: #444;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+      background: rgba(200,240,74,0.07);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      min-height: 100vh;
+      padding: 120px 2.5rem 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-tag::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 40px;
+      background: var(--accent);
+      opacity: 0.4;
+    }
+
+    /* ── HERO / PROFILE ── */
+    #profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 140px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name span {
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-bio {
+      max-width: 620px;
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      padding: 0.65rem 1.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: #d8ff5a;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 2.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted2);
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-scroll-hint::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--muted2);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ── RESUME / SKILLS ── */
+    #resume {
+      border-top: 1px solid var(--border);
+    }
+
+    .resume-download-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 3rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .resume-download-bar p {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .resume-download-bar p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .skill-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .tag.accent { border-color: var(--accent); color: var(--accent); }
+    .tag.teal   { border-color: var(--accent2); color: var(--accent2); }
+
+    .resume-objective {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ── WORK SAMPLES ── */
+    #work {
+      border-top: 1px solid var(--border);
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .project-item {
+      background: var(--surface);
+      padding: 0;
+      transition: background 0.2s;
+      overflow: hidden;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.75rem;
+      cursor: pointer;
+      gap: 1rem;
+      transition: background 0.2s;
+    }
+
+    .project-header:hover {
+      background: var(--surface2);
+    }
+
+    .project-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex: 1;
+    }
+
+    .project-year {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      min-width: 36px;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .project-stack-inline {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-left: auto;
+      padding-right: 1rem;
+    }
+
+    .project-chevron {
+      color: var(--muted);
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .project-item.open .project-chevron {
+      transform: rotate(90deg);
+      color: var(--accent);
+    }
+
+    .project-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .project-item.open .project-body {
+      max-height: 400px;
+    }
+
+    .project-body-inner {
+      padding: 0 1.75rem 1.75rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .project-desc {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .project-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .project-highlights li {
+      font-size: 0.88rem;
+      color: #888;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .project-highlights li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 0.15rem;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    /* ── EDUCATION ── */
+    #education {
+      border-top: 1px solid var(--border);
+    }
+
+    .edu-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-top: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .edu-block:hover {
+      border-color: var(--muted2);
+    }
+
+    .edu-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-school {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .edu-degree {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    .edu-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .edu-courses {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .edu-course-row {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      font-size: 0.88rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-course-row:last-child { border-bottom: none; }
+
+    .edu-course-code {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent2);
+      min-width: 90px;
+      flex-shrink: 0;
+    }
+
+    .edu-course-name {
+      color: #bbb;
+    }
+
+    .acks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .ack-card {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .ack-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .ack-card-value {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .ack-card-note {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted2);
+      font-style: italic;
+    }
+
+    /* ── CONTACT STRIP ── */
+    .contact-strip {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-left p {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-left span {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted2);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 3rem;
+      max-width: 500px;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    /* ── CURSOR DOT ── */
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, opacity 0.3s;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links a { padding: 0.35rem 0.5rem; font-size: 0.72rem; }
+      section { padding: 100px 1.25rem 60px; }
+      .contact-strip { padding: 2rem 1.25rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#profile" class="nav-logo">AI.</a>
+  <ul class="nav-links">
+    <li><a href="#profile" data-section="profile">Profile</a></li>
+    <li><a href="#resume" data-section="resume">Skills</a></li>
+    <li><a href="#work" data-section="work">Work Samples</a></li>
+    <li><a href="#education" data-section="education">Education</a></li>
+  </ul>
+</nav>
+
+<!-- ══ 1. PROFILE ══ -->
+<section id="profile">
+  <p class="hero-eyebrow">// Computer Programming Diploma — George Brown College</p>
+  <h1 class="hero-name">Anees<br><span>Ul Islam</span></h1>
+  <p class="hero-title">Developer &amp; Computer Programming Graduate</p>
+  <p class="hero-bio">
+    Recent graduate of the Computer Programming Diploma program at George Brown College (April 2026). I build backend systems, relational databases, and full-stack web applications. My coursework and project work spans Python/Flask, C#/.NET, SQL database design, and modern JavaScript — with hands-on experience shipping a production-deployed ticketing platform as a capstone project.
+    <br><br>
+    I am actively seeking roles in software development or database administration where I can apply what I have built and keep growing under experienced teams.
+  </p>
+  <div class="hero-links">
+    <a href="#work" class="btn btn-primary">View My Work ↓</a>
+    <a href="Resume.pdf" download class="btn btn-ghost">Download Resume ↗</a>
+    <a href="mailto:aneez.professional@protonmail.com" class="btn btn-ghost">Get in Touch</a>
+  </div>
+  <div class="hero-scroll-hint">scroll</div>
+</section>
+
+<!-- ══ 2. SKILLS / RESUME ══ -->
+<section id="resume">
+  <div class="reveal">
+    <div class="section-tag">02 — Skills &amp; Resume</div>
+    <h2 class="section-heading">What I<br>Work With</h2>
+    <p class="section-sub">Technical stack built through coursework, group projects, and personal development.</p>
+  </div>
+
+  <div class="resume-download-bar reveal">
+    <p><strong>Anees Ul Islam — Resume.pdf</strong> &nbsp;·&nbsp; Full resume with objective, qualifications, and project experience</p>
+    <a href="Resume.pdf" download class="btn btn-primary">↓ Download PDF</a>
+  </div>
+
+  <div class="resume-objective reveal">
+    Recent graduate of the Computer Programming Diploma at George Brown College. Coursework covered database design, relational systems, C# application development, full-stack web applications, and Agile project delivery. Comfortable working across backend, database, and frontend layers — looking to contribute in a junior developer or DBA support role.
+  </div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-card-label">Database</div>
+      <div class="skill-tags">
+        <span class="tag accent">SQL</span>
+        <span class="tag accent">SQLite</span>
+        <span class="tag accent">MySQL</span>
+        <span class="tag">DDL / DML</span>
+        <span class="tag">Normalization</span>
+        <span class="tag">Stored Procedures</span>
+        <span class="tag">Schema Design</span>
+        <span class="tag">ER Diagrams</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Languages</div>
+      <div class="skill-tags">
+        <span class="tag accent">Python</span>
+        <span class="tag accent">C#</span>
+        <span class="tag accent">JavaScript</span>
+        <span class="tag">Java</span>
+        <span class="tag">JavaFX</span>
+        <span class="tag">HTML / CSS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Frameworks &amp; Tools</div>
+      <div class="skill-tags">
+        <span class="tag teal">Flask</span>
+        <span class="tag teal">React</span>
+        <span class="tag teal">Node.js</span>
+        <span class="tag teal">Express</span>
+        <span class="tag">.NET / Visual Studio</span>
+        <span class="tag">Git / GitHub</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Practices</div>
+      <div class="skill-tags">
+        <span class="tag">Agile / Scrum</span>
+        <span class="tag">OOP</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Version Control</span>
+        <span class="tag">Linux &amp; Windows</span>
+        <span class="tag">Documentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. WORK SAMPLES ══ -->
+<section id="work">
+  <div class="reveal">
+    <div class="section-tag">03 — Work Samples</div>
+    <h2 class="section-heading">Projects</h2>
+    <p class="section-sub">Academic and capstone work built during the Computer Programming Diploma.</p>
+  </div>
+
+  <div class="projects-list reveal">
+
+    <!-- PETMS -->
+    <div class="project-item" data-project>
+      <div class="project-header">
+        <div class="project-header-left">
+          <span class="project-year">2025</span>
+          <span class="project-name">PETMS — Public Event Ticket Management System</span>
+        </div>
+        <span class="project-stack-inline">Flask · Python · SQLite</span>
+        <span class="project-chevron">▶</span>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+          <p class="project-desc">
+            A full-stack web application built as the COMP 2154 System Development Project capstone. PETMS allows event organizers to create and manage public events with tiered ticketing, and attendees to register, purchase, and manage their bookings. Deployed live on Render.
+          </p>
+          <ul class="project-highlights">
+            <li>Designed the relational database schema from requirements through production — tables, relationships, constraints, and multi-role access (admin, organizer, attendee)</li>
+            <li>Wrote SQL scripts for data setup, validation checks, and query operations across all user roles</li>
+            <li>Built backend routes and user authentication using Flask and SQLite</li>
+            <li>Collaborated in a team of four using Git for version control, code reviews, and branch management</li>
+            <li>Maintained Dev and Test environments and documented changes across each project iteration</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag accent">Python</span>
+              <span class="tag accent">Flask</span>
+              <span class="tag accent">SQLite</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Git</span>
+              <span class="tag">Agile/Scrum</span>
+            </div>
+            <a href="https://petms-group21.onrender.com/" target="_blank" rel="noopener" class="btn btn-primary">Live Demo ↗</a>
+            <a href="https://github.com/AneezAnsari/PETMS_Group21" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Planner -->
+    <div class="project-item" data-project>
+      <div class="project-header">
+        <div class="project-header-left">
+          <span class="project-year">2025</span>
+          <span class="project-name">Event Planner Application</span>
+        </div>
+        <span class="project-stack-inline">C# · .NET</span>
+        <span class="project-chevron">▶</span>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+          <p class="project-desc">
+            A client-server desktop application built in C# using the .NET framework and Visual Studio. Allows users to create, schedule, and manage events with a clean Windows UI, demonstrating OOP principles, form-based input handling, and data persistence.
+          </p>
+          <ul class="project-highlights">
+            <li>Built using C# and the .NET framework in Visual Studio, applying core OOP concepts across the codebase</li>
+            <li>Implemented event creation, editing, and deletion with form-based UI components</li>
+            <li>Applied data validation and structured the project following standard client-server architecture patterns</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag accent">C#</span>
+              <span class="tag accent">.NET</span>
+              <span class="tag">Visual Studio</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Windows Forms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DB/SQL Project -->
+    <div class="project-item" data-project>
+      <div class="project-header">
+        <div class="project-header-left">
+          <span class="project-year">2025</span>
+          <span class="project-name">Database Design Project</span>
+        </div>
+        <span class="project-stack-inline">SQL · MySQL</span>
+        <span class="project-chevron">▶</span>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+          <p class="project-desc">
+            Academic project completed in COMP 2148 — Database Design. Covered the full lifecycle of relational database design from ER modeling through physical implementation, including normalization, stored procedures, and query optimization.
+          </p>
+          <ul class="project-highlights">
+            <li>Designed ER diagrams and translated them into normalized relational schemas (1NF through 3NF)</li>
+            <li>Wrote DDL and DML scripts covering table creation, constraints, joins, subqueries, and stored procedures</li>
+            <li>Applied access control and security principles to the schema design</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag accent">SQL</span>
+              <span class="tag accent">MySQL</span>
+              <span class="tag">DDL / DML</span>
+              <span class="tag">Normalization</span>
+              <span class="tag">ER Diagrams</span>
+              <span class="tag">Stored Procedures</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 4. EDUCATION & ACKNOWLEDGEMENTS ══ -->
+<section id="education">
+  <div class="reveal">
+    <div class="section-tag">04 — Education &amp; Acknowledgements</div>
+    <h2 class="section-heading">Education</h2>
+    <p class="section-sub">Academic background and program credentials.</p>
+  </div>
+
+  <div class="edu-block reveal">
+    <div class="edu-header">
+      <div>
+        <div class="edu-school">George Brown College</div>
+        <div class="edu-degree">Computer Programming Diploma</div>
+      </div>
+      <div class="edu-date">Sep 2024 — Apr 2026</div>
+    </div>
+    <div class="edu-courses">
+      <div class="edu-course-row">
+        <span class="edu-course-code">COMP 2148</span>
+        <span class="edu-course-name">Database Design — normalization, schema modeling, stored procedures, query optimization, physical &amp; logical DBA concepts</span>
+      </div>
+      <div class="edu-course-row">
+        <span class="edu-course-code">COMP 2154</span>
+        <span class="edu-course-name">System Development Project — full SDLC capstone (PETMS), database schema design, backend integration, multi-role auth, team Git workflow</span>
+      </div>
+      <div class="edu-course-row">
+        <span class="edu-course-code">COMP 2151</span>
+        <span class="edu-course-name">Agile Software Development — iterative delivery, backlog management, Scrum practices, cross-team coordination</span>
+      </div>
+      <div class="edu-course-row">
+        <span class="edu-course-code">OOP &amp; C#</span>
+        <span class="edu-course-name">Object-oriented programming using C# and the .NET framework in Visual Studio</span>
+      </div>
+      <div class="edu-course-row">
+        <span class="edu-course-code">Data Structures</span>
+        <span class="edu-course-name">Algorithm design, analytical thinking, hash tables, collision resolution, and performance analysis</span>
+      </div>
+      <div class="edu-course-row">
+        <span class="edu-course-code">Java &amp; JavaFX</span>
+        <span class="edu-course-name">Java programming with JavaFX for GUI application development</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top: 3rem;">
+    <div class="section-tag">Acknowledgements &amp; Documents</div>
+    <div class="acks-grid">
+      <div class="ack-card">
+        <span class="ack-card-label">Credential</span>
+        <span class="ack-card-value">Computer Programming Diploma</span>
+        <span class="ack-card-note">George Brown College — Apr 2026</span>
+      </div>
+      <div class="ack-card">
+        <span class="ack-card-label">Transcript</span>
+        <span class="ack-card-value">Academic Transcript</span>
+        <span class="ack-card-note">Available upon request</span>
+      </div>
+      <div class="ack-card">
+        <span class="ack-card-label">Resume</span>
+        <span class="ack-card-value">Full Resume — PDF</span>
+        <span class="ack-card-note"><a href="Resume.pdf" download style="color:var(--accent);text-decoration:none;">Download ↓</a></span>
+      </div>
+      <div class="ack-card">
+        <span class="ack-card-label">GitHub</span>
+        <span class="ack-card-value">@AneezAnsari</span>
+        <span class="ack-card-note"><a href="https://github.com/AneezAnsari" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/AneezAnsari ↗</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT STRIP ── -->
+<div class="contact-strip reveal">
+  <div class="contact-left">
+    <p>Get in touch</p>
+    <span>Open to junior developer and DBA roles — Toronto &amp; remote</span>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:aneez.professional@protonmail.com" class="btn btn-primary">Email Me ↗</a>
+    <a href="https://linkedin.com/in/aneezansari" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    <a href="https://github.com/AneezAnsari" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+  </div>
+</div>
+
+<footer>© 2026 Anees Ul Islam &nbsp;·&nbsp; aneez.dev</footer>
+
+<script>
+  // ── Cursor dot
+  const dot = document.getElementById('cursorDot');
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+  });
+
+  // ── Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a[data-section]');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.dataset.section === entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // ── Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // ── Accordion projects
+  document.querySelectorAll('[data-project]').forEach(item => {
+    item.querySelector('.project-header').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('[data-project]').forEach(p => p.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
